@@ -1,0 +1,8 @@
+additional_packages:
+   - htop
+   - vim
+   - wget
+   - curl
+   - nano
+   - tmux
+   - pfetch

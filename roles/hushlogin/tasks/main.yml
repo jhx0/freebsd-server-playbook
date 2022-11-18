@@ -1,0 +1,5 @@
+---
+- name: Creating .hushlogin for user {{ user_name }}
+  ansible.builtin.file:
+    path: /home/{{ user_name }}/.hushlogin
+    state: touch

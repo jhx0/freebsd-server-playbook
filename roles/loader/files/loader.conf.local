@@ -1,0 +1,10 @@
+# set the loader delay
+autoboot_delay="2"
+
+# zfs arc size
+# this needs to be altered to your needs
+vfs.zfs.arc_max="2048M"
+
+# display beastie at the loader prompt
+# comment this out if you don't like it
+loader_logo="beastie"

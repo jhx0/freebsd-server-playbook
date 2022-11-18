@@ -1,0 +1,9 @@
+---
+- name: Copying over login.conf
+  template: 
+    src: login.conf.j2
+    dest: /etc/login.conf
+    mode: '0644'
+
+- name: Generating login.conf db
+  shell: cap_mkdb /etc/login.conf

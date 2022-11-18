@@ -1,0 +1,9 @@
+---
+- name: Clearing /tmp on startup
+  shell: sysrc -f /etc/rc.conf.local clear_tmp_enable="YES"
+
+- name: Enable moused
+  shell: sysrc -f /etc/rc.conf.local moused_enable="YES"
+
+- name: Disabling Syslogd network socket
+  shell: sysrc -f /etc/rc.conf.local syslogd_flags="-ss"

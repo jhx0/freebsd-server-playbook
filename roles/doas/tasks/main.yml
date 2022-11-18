@@ -1,0 +1,11 @@
+---
+- name: Installing doas
+  community.general.pkgng:
+    name: doas
+    state: present
+
+- name: Configuring doas
+  template: 
+    src: doas.conf.j2
+    dest: /usr/local/etc/doas.conf
+    mode: '0644'

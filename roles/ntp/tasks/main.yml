@@ -1,0 +1,12 @@
+---
+- name: Configuring NTP
+  template: 
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    mode: '0644'
+
+- name: Enabling NTP
+  shell: sysrc -f /etc/rc.conf.local ntpd_enable="YES"
+
+- name: Setting additional options
+  shell: sysrc -f /etc/rc.conf.local ntpd_flags="-g"
