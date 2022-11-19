@@ -7,3 +7,4 @@ additional_packages:
    - tmux
    - pfetch
    - uptimed
+   - rsync
