@@ -25,3 +25,6 @@ Also: Make sure you have set the correct IP/Hostname in the **hosts** file.
 Take a look at the provided roles in the **site.yml** file!
 
 **BEWARE:** do **_NOT_** run this Playbook blindly!
+
+## Thanks:
+**Juraj „otis“ Lutter** (https://twitter.com/jurajlutter) - For suggesting to only rebuild the login.conf db when necessary.
