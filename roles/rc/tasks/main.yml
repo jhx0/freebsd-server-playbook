@@ -10,3 +10,9 @@
 
 - name: Enable uptimed
   shell: sysrc -f /etc/rc.conf.local uptimed_enable="YES"
+
+- name: Create second loopback interface (Jails)
+  shell: sysrc -f /etc/rc.conf.local cloned_interfaces="lo1"
+
+- name: Enable ezjail
+  shell: sysrc -f /etc/rc.conf.local ezjail_enable="YES"

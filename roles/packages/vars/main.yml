@@ -8,3 +8,4 @@ additional_packages:
    - pfetch
    - uptimed
    - rsync
+   - ezjail
