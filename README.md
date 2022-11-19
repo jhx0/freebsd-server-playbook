@@ -2,6 +2,13 @@
 
 A simple Playbook to configure a new FreeBSD based server.
 
+## Requirements:
+To run this Playbook on a FreeBSD system, the system in question must have Python installed.
+This can be done via pkg for example:
+```
+target# pkg install python
+```
+
 ## Usage:
 1. Clone/download this repository
 2. Unpack/cd into the directory
