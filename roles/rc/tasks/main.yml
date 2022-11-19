@@ -7,3 +7,6 @@
 
 - name: Disabling Syslogd network socket
   shell: sysrc -f /etc/rc.conf.local syslogd_flags="-ss"
+
+- name: Enable uptimed
+  shell: sysrc -f /etc/rc.conf.local uptimed_enable="YES"

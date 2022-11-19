@@ -6,3 +6,4 @@ additional_packages:
    - nano
    - tmux
    - pfetch
+   - uptimed
