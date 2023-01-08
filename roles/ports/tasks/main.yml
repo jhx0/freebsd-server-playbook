@@ -1,0 +1,9 @@
+---
+- name: Deploying Ports tree
+  shell: portsnap fetch extract
+
+- name: Copy over basic make.conf
+  template: 
+    src: make.conf.j2
+    dest: /etc/make.conf
+    mode: '0644'

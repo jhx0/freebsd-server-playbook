@@ -1,0 +1,17 @@
+# CPU type
+CPUTYPE?={{ make_cputype }}
+
+# Use more make jobs to speed up compilation
+FORCE_MAKE_JOBS=YES
+MAKE_JOBS_NUMBER={{ make_jobs }}
+
+# Global options definitions
+OPTIONS_UNSET+= NLS EXAMPLES TEST DEBUG X11 GUI
+OPTIONS_SET+= IPV6 DOCS OPTIMIZATIONS OPTIMIZED_CFLAGS OPTIMIZED_FLAGS
+
+##
+# Per package options can be specified here.
+#
+# For example:
+# security_sudo_SET+= INSULTS
+##

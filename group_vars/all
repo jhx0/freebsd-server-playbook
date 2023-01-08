@@ -10,3 +10,6 @@ login_locale: "en_US.UTF-8"
 sshd_port: 22
 
 fail2ban_sshd_port: 22
+
+make_jobs: 2
+make_cputype: "native"

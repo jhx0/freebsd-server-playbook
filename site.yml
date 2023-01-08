@@ -17,4 +17,5 @@
     - fail2ban
     - hushlogin
     - loader
+    - ports
     - reboot
