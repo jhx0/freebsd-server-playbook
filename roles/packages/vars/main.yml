@@ -9,3 +9,4 @@ additional_packages:
    - uptimed
    - rsync
    - ezjail
+   - beadm
