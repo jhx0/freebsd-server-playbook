@@ -1,0 +1,5 @@
+---
+- name: Installing additional packages
+  community.general.pkgng:
+    name: "{{ packages }}"
+    state: present

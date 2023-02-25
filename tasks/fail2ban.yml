@@ -1,0 +1,18 @@
+---
+- name: Installing Fail2Ban
+  community.general.pkgng:
+    name: "{{ fail2ban_package }}"
+    state: present
+
+- name: Copying config file (Fail2Ban)
+  template: 
+    src: jail.local.j2 
+    dest: /usr/local/etc/fail2ban/jail.local
+    mode: '0640'
+
+- name: Enabling Fail2Ban
+  community.general.sysrc:
+    name: fail2ban_enable
+    value: "YES"
+    path: "{{ rc_conf_local }}"
+  notify: restart fail2ban

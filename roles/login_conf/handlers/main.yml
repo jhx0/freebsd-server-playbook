@@ -1,2 +1,0 @@
-- name: Generating login.conf db
-  shell: cap_mkdb /etc/login.conf

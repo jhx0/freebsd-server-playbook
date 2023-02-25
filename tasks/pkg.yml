@@ -1,0 +1,24 @@
+---
+- name: Setting up pkg repository (1/2)
+  ansible.builtin.file:
+    path: /usr/local/etc/pkg/repos
+    state: directory
+    mode: '0755'
+  when: use_latest_packages
+
+- name: Setting up pkg repository (1/2)
+  copy: 
+    src: files/pkg/Latest.conf
+    dest: /usr/local/etc/pkg/repos/Latest.conf
+    mode: '0644'
+  when: use_latest_packages
+
+- name: Bootstrap pkg
+  shell: ASSUME_ALWAYS_YES=yes pkg
+  ignore_errors: true
+
+- name: Update package cache
+  shell: pkg update -f
+
+- name: Update audit database
+  shell: pkg audit -F

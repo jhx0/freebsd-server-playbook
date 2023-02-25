@@ -1,0 +1,42 @@
+---
+  - import_tasks: tasks/upgrade.yml
+    tags: upgrade
+
+  - import_tasks: tasks/ntp.yml
+    tags: ntp
+
+  - import_tasks: tasks/pkg.yml
+    tags: pkg
+
+  - import_tasks: tasks/login_conf.yml
+    tags: login_conf
+
+  - import_tasks: tasks/rc.yml
+    tags: rc
+
+  - import_tasks: tasks/doas.yml
+    tags: doas
+
+  - import_tasks: tasks/packages.yml
+    tags: packages
+
+  - import_tasks: tasks/sshd.yml
+    tags: sshd
+
+  - import_tasks: tasks/sysctl.yml
+    tags: sysctl
+
+  - import_tasks: tasks/fail2ban.yml
+    tags: fail2ban
+
+  - import_tasks: tasks/hushlogin.yml
+    tags: hushlogin
+
+  - import_tasks: tasks/loader.yml
+    tags: loader
+
+  - import_tasks: tasks/ports.yml
+    tags: ports
+
+  - import_tasks: tasks/reboot.yml
+    tags: reboot

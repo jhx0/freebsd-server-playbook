@@ -1,0 +1,6 @@
+---
+- name: Copying over sysctl.conf
+  copy: 
+    src: files/sysctl/sysctl.conf
+    dest: /etc/sysctl.conf
+    mode: '0644'

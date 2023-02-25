@@ -1,0 +1,30 @@
+---
+ansible_become_flags: "-"
+
+user_name: "x"
+
+rc_conf_local: "/etc/rc.conf.local"
+
+use_latest_packages: true
+
+ntp_pool: "0.de.pool.ntp.org"
+
+login_locale: "en_US.UTF-8"
+
+disable_sendmail: true
+
+packages:
+   - vim
+   - wget
+   - curl
+   - tmux
+   - rsync
+
+sshd_port: 22
+
+fail2ban_package: py39-fail2ban
+
+fail2ban_sshd_port: 22
+
+make_jobs: 2
+make_cputype: "native"

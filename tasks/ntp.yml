@@ -1,0 +1,22 @@
+---
+- name: Configuring NTPD
+  template: 
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    mode: '0644'
+
+- name: Enable NTPD
+  community.general.sysrc:
+    name: ntpd_enable
+    value: "YES"
+    path: "{{ rc_conf_local }}"
+
+- name: Add NTPD flag
+  community.general.sysrc:
+    name: ntpd_flags
+    value: "-g"
+    path: "{{ rc_conf_local }}"
+  notify: restart ntpd
+
+- name: Restart NTPD
+  meta: flush_handlers

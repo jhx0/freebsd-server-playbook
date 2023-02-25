@@ -1,6 +1,0 @@
----
-- name: Copying over loader.conf.local
-  copy: 
-    src: loader.conf.local
-    dest: /boot/loader.conf.local
-    mode: '0644'

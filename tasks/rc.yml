@@ -1,0 +1,38 @@
+---
+- name: Clearing /tmp on startup
+  community.general.sysrc:
+    name: clear_tmp_enable
+    value: "YES"
+    path: "{{ rc_conf_local }}"
+
+- name: Enable moused
+  community.general.sysrc:
+    name: moused_enable
+    value: "YES"
+    path: "{{ rc_conf_local }}"
+
+- name: Disabling Syslogd network socket
+  community.general.sysrc:
+    name: syslogd_flags
+    value: "-ss"
+    path: "{{ rc_conf_local }}"
+  notify: restart syslogd
+
+- name: Restart Syslogd
+  meta: flush_handlers
+
+- name: Disabling Sendmail
+  community.general.sysrc:
+    name: "{{ item }}"
+    value: "NO"
+    path: "{{ rc_conf_local }}"
+  loop:
+    - sendmail_enable
+    - sendmail_submit_enable
+    - sendmail_outbound_enable
+    - sendmail_msp_queue_enable
+  when: disable_sendmail
+  notify: stop sendmail
+
+- name: Stop Sendmail
+  meta: flush_handlers

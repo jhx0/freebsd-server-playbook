@@ -1,0 +1,28 @@
+---
+- name: restart ntpd
+  service:
+    name: ntpd
+    state: restarted
+
+- name: generate login db
+  shell: cap_mkdb /etc/login.conf
+
+- name: restart syslogd
+  service:
+    name: syslogd
+    state: restarted
+
+- name: stop sendmail
+  service:
+    name: sendmail
+    state: stopped
+
+- name: restart sshd
+  service:
+    name: sshd
+    state: restarted
+
+- name: restart fail2ban
+  service:
+    name: fail2ban
+    state: restarted
