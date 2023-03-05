@@ -56,6 +56,11 @@ reboot
 Before running this Playbook, be sure to check the variables in the **vars/main.yml** directory.  
 Also: Make sure you have set the correct IP/Hostname in the **hosts** file.   
 
+If **Python** is not already installed on the destionation host, you can run the supplied **bootstrap.yml** **Playbook** to do just that.
+```Shell
+$ ansible-playbook bootstrap.yml (-Kk)
+```
+
 **BEWARE:** do **_NOT_** run this Playbook blindly!
 
 ## Thanks:
