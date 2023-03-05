@@ -1,24 +1,36 @@
 ---
-- name: Setting up pkg repository (1/2)
+- name: Latest | Creating pkg repos directory
   ansible.builtin.file:
     path: /usr/local/etc/pkg/repos
     state: directory
     mode: '0755'
   when: use_latest_packages
 
-- name: Setting up pkg repository (1/2)
-  copy: 
-    src: files/pkg/Latest.conf
-    dest: /usr/local/etc/pkg/repos/Latest.conf
+- name: Latest | Copy pkg repo configuration file
+  ansible.builtin.copy:
+    src: /etc/pkg/FreeBSD.conf
+    dest: /usr/local/etc/pkg/repos/FreeBSD.conf
+    owner: root
+    group: wheel
     mode: '0644'
+    force: false
+    remote_src: yes
   when: use_latest_packages
 
-- name: Bootstrap pkg
-  shell: ASSUME_ALWAYS_YES=yes pkg
-  ignore_errors: true
+- name: Latest | Setting up latest pkg repo
+  replace:
+    path: /usr/local/etc/pkg/repos/FreeBSD.conf
+    regexp: 'quarterly'
+    replace: 'latest'
+  when: use_latest_packages
 
 - name: Update package cache
   shell: pkg update -f
 
 - name: Update audit database
   shell: pkg audit -F
+
+- name: Upgrade all packages
+  community.general.pkgng:
+    name: "*"
+    state: latest

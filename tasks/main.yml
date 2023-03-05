@@ -2,11 +2,11 @@
   - import_tasks: tasks/upgrade.yml
     tags: upgrade
 
-  - import_tasks: tasks/ntp.yml
-    tags: ntp
-
   - import_tasks: tasks/pkg.yml
     tags: pkg
+
+  - import_tasks: tasks/ntp.yml
+    tags: ntp
 
   - import_tasks: tasks/login_conf.yml
     tags: login_conf

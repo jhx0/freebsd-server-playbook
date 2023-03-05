@@ -5,7 +5,7 @@ user_name: "x"
 
 rc_conf_local: "/etc/rc.conf.local"
 
-use_latest_packages: true
+use_latest_packages: false
 
 ntp_pool: "0.de.pool.ntp.org"
 
